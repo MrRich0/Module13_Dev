@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>Список нотаток</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+  <h1>Список нотаток</h1>
+
+  <a href="/note/create" class="btn btn-success">Створити нотатку</a>
+
+  <table class="table table-bordered table-striped">
+
+    <tr>
+      <th>ID</th>
+      <th>Заголовок</th>
+      <th>Текст</th>
+      <th>Дії</th>
+    </tr>
+
+    <tr th:each="note : ${notes}">
+      <td th:text="${note.id}">1</td>
+      <td th:text="${note.title}">Заголовок 1</td>
+      <td th:text="${note.content}">Текст нотатки 1</td>
+      <td>
+        <a th:href="@{/note/edit(id=${note.id})}" class="btn btn-primary">Редагувати</a>
+
+        <form th:action="@{/note/delete}" method="post" class="d-inline">
+          <input type="hidden" name="id" th:value="${note.id}"/>
+          <input type="submit" value="Видалити" class="btn btn-danger"/>
+        </form>
+      </td>
+    </tr>
+
+  </table>
+
+</div>
+
+</body>
+</html>

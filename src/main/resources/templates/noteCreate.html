@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Створити нотатку</title>
+
+  <style>
+    /* Стили Bootstrap */
+    @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+  </style>
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+  <h1>Створити нотатку</h1>
+
+  <form th:action="@{/note/create}" method="post">
+
+    <div class="form-group">
+      <label for="title">Заголовок</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="content">Текст нотатки</label>
+      <textarea class="form-control" id="content" name="content"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Створити</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>
+
